@@ -43,12 +43,12 @@ class TestTeam(unittest.TestCase):
     def test_team_has_points(self):
         self.assertEqual(0, self.team.points)
         
-    @unittest.skip("delete this line to run the test")
+    #@unittest.skip("delete this line to run the test")
     def test_play_game__win(self):
         self.team.play_game(True)
         self.assertEqual(3, self.team.points)
 
-    @unittest.skip("delete this line to run the test")
+    #@unittest.skip("delete this line to run the test")
     def test_play_game__lose(self):
         self.team.play_game(False)
         self.assertEqual(0, self.team.points)
