@@ -1,9 +1,9 @@
 import src.bank_account as bank_account
 
-account = {
-    "holder_name": "John",
-    "balance": 500,
-    "type" : "business"
-}
+account = bank_account.BankAccount('John', 500 , "business")
+account_2 = bank_account.BankAccount("Dave", 1000, "personal")
 
-print(bank_account.get_account_name(account))
+account.pay_in(100)
+account.pay_fee()
+
+print(account.balance) 
