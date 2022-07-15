@@ -55,3 +55,17 @@ class TestRoom(unittest.TestCase):
     def test_when_room_is_empty_capacity_does_not_increase_if_check_out(self):
         self.assertRaises(ValueError, self.room2.check_out, self.guest2)
         self.assertEqual(1, self.room2.capacity)
+    
+    def test_room_has_tab_for_spending(self):
+        self.assertEqual(0.00, self.room1.tab)
+
+    def test_room_keeps_track_of_entry_fess(self):
+        self.room1.check_in(self.guest1)
+        self.room1.check_in(self.guest2)
+        self.assertEqual(20.00, self.room1.tab)
+
+    def test_room_charges_guest_to_enter(self):
+        self.room1.check_in(self.guest1)
+        self.room1.check_in(self.guest2)
+        self.assertEqual(90.00, self.guest1.wallet)
+        self.assertEqual(190.00, self.guest2.wallet)
