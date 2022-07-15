@@ -14,8 +14,8 @@ class TestRoom(unittest.TestCase):
         self.song3 = Song("Thriller", "Michael Jackson")
         self.song4 = Song("Bohemiam Raphsody", "Queen")
         
-        self.guest1 = Guest("Juan", [self.song1, self.song2], 100.00)
-        self.guest2 = Guest("Diego", [self.song3, self.song4], 200.00)
+        self.guest1 = Guest("Juan", [self.song1, self.song2], 100.00, self.song2)
+        self.guest2 = Guest("Diego", [self.song3, self.song4], 200.00, self.song3)
 
     def test_create_room(self):
         self.assertEqual("Room 1", self.room1.name)

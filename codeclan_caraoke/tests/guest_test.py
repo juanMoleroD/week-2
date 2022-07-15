@@ -11,8 +11,8 @@ class TestGuest(unittest.TestCase):
         self.song3 = Song("Thriller", "Michael Jackson")
         self.song4 = Song("Bohemiam Raphsody", "Queen")
 
-        self.guest1 = Guest("Juan", [self.song1, self.song2], 100.00)
-        self.guest2 = Guest("Diego", [self.song3, self.song4], 200.00)
+        self.guest1 = Guest("Juan", [self.song1, self.song2], 100.00, self.song2)
+        self.guest2 = Guest("Diego", [self.song3, self.song4], 200.00, self.song3)
 
     
     def test_guest_has_name(self):
@@ -27,6 +27,9 @@ class TestGuest(unittest.TestCase):
     def test_guest_can_pay_fee(self):
         self.guest1.pay_fee()
         self.assertEqual(90.00, self.guest1.wallet)
+    
+    def test_guest_has_favourite_song(self):
+        self.assertEqual("Africa", self.guest1.favourite_song.name)
     
     def test_guest_cheers_if_favourite_song_on_room_playlist(self):
         self.assertEqual("Whoo!!", self.guest1.check_for_favourite_song(self.room1))

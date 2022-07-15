@@ -1,1 +1,2 @@
-__pyycache__
+src/__pyycache__/
+tests/__pycache__/
