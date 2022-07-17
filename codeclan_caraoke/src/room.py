@@ -5,14 +5,13 @@ class Room():
         self.guests = []
         self.playlist = []
         self.tab = 0.00
-
     
     def charge_fee(self, guest):
         guest.pay_fee()
         self.tab += 10
 
     def check_in(self, guest):
-        if self.capacity > 0:
+        if self.capacity > 0 and guest.wallet >= 10:
             self.guests.append(guest)
             self.capacity -= 1
             self.charge_fee(guest)

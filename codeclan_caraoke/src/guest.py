@@ -1,6 +1,3 @@
-from unicodedata import name
-
-
 class Guest():
     def __init__(self, name, songs, wallet, favourite_song):
         self.name = name
@@ -9,7 +6,8 @@ class Guest():
         self.favourite_song = favourite_song
 
     def pay_fee(self):
-        self.wallet -= 10
+        if self.wallet >= 10:
+            self.wallet -= 10
 
     def check_for_favourite_song(self, room):
         for song in room.playlist:

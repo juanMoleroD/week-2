@@ -30,13 +30,13 @@ class TestRoom(unittest.TestCase):
         self.room1.check_out(self.guest1)
         self.assertEqual("Diego", self.room1.guests[0].name)
     
-    def test_rooms_have_playlist(self):
+    def test_rooms_have_playlist_and_you_can_add_songs(self):
         self.room1.add_song(self.song3)
         self.assertEqual("Michael Jackson", self.room1.playlist[0].artist)
 
     def test_room_has_capacity(self):
         self.assertEqual(5, self.room1.capacity)
-    
+     
     def test_capacity_decreases_when_guest_checks_in(self):
         self.room1.check_in(self.guest1)
         self.assertEqual(4, self.room1.capacity)
